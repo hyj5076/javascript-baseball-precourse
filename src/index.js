@@ -1,35 +1,20 @@
 
-/* 
- * Range 주의하기, MissionUtils 먼저 끌어와야 되는구나!
- * console.log(MissionUtils.Random.pickNumberInRange(1, 9));
- * console.log(Random.pickNumberInRange(1, 9)); 
- */
+// import makeRandomNumber from "./utilFuntions/makeRandomNumber";
 
-function makeRandomNumber() {
-    let randomNumber = '';
+function userNumber() {
+    const submitBtn = document.getElementById('submit');
+    const userInputForm = document.getElementById('user-input');
 
-    for (let i = 0; i < 3; i++) {
-        let tryNum;
-
-        do {
-            tryNum = MissionUtils.Random.pickNumberInRange(1, 9);
-        } while (randomNumber.includes(tryNum.toString())); // 중복 없는 세자리 수
-
-        randomNumber += tryNum.toString();
-    }
-
-    return randomNumber;
+    submitBtn.addEventListener('click', function(event) {
+        event.preventDefault();
+        console.log(userInputForm.value);
+        return userInputForm.value;
+    });
 }
 
-const uniqueNumber = makeRandomNumber();
-console.log(uniqueNumber);
-
-export default makeRandomNumber;
+userNumber();
 
 /* export default function BaseballGame() {
-    this.randomNumber = MissionUtils.Random.pickNumberInRange(1, 9);
-    console.log(this.randomNumber);
-
     this.play = function (computerInputNumbers, userInputNumbers) {
         return "결과 값 String";
     };

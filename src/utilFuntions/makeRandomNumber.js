@@ -1,13 +1,19 @@
-/* export default function randomNumber() {
-    this.randomNumber = MissionUtils.Random.pickNumberInRange(1, 9);
-    // console.log(this.randomNumber);
+export default function makeRandomNumber() {
+    let randomNumber = '';
 
-    this.play = function (computerInputNumbers, userInputNumbers) {
-        return "결과 값 String";
-    };
+    for (let i = 0; i < 3; i++) {
+        let tryNumber;
+
+        do {
+            tryNumber = MissionUtils.Random.pickNumberInRange(1, 9);
+        } while (randomNumber.includes(tryNumber.toString()));
+
+        randomNumber += tryNumber.toString();
+    }
+
+    return randomNumber;
 }
 
-const game = new randomNumber();
-console.log(game.randomNumber); */
-
+const uniqueNumber = makeRandomNumber();
+console.log(uniqueNumber);
 
